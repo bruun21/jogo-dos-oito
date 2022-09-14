@@ -1,10 +1,12 @@
 package aplicacao;
 
+import tabuleiro.Posicao;
+
 public class Programa {
 
 	public static void main(String[] args) {
-		System.out.println("Teste Inicial");
-
+		Posicao posicao = new Posicao(3,5);
+		System.out.println(posicao);
 	}
 
 }
