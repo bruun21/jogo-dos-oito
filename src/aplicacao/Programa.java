@@ -1,11 +1,12 @@
 package aplicacao;
 
-import tabuleiro.Tabuleiro;
+import partida.Partida;
 
 public class Programa {
 
 	public static void main(String[] args) {
-		Tabuleiro tabuleiro = new Tabuleiro(3,3);
+		Partida partida = new Partida();
+		InterfaceUsuario.imprimirTabuleiro(partida.pecas());
 	}
 
 }
