@@ -17,7 +17,7 @@ public class InterfaceUsuario {
 		if (peca == null) {
 			System.out.print(" ");
 		} else {
-			System.out.print("peca");
+			System.out.print(peca);
 		}
 		System.out.print(" ");
 	}
