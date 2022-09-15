@@ -30,7 +30,6 @@ public class Partida {
 	}
 
 	private void inicializacaoPartida() {
-
 		tabuleiro.colocaPeca(new Numero1(tabuleiro), new Posicao(0, 2));
 		tabuleiro.colocaPeca(new Numero2(tabuleiro), new Posicao(0, 0));
 		tabuleiro.colocaPeca(new Numero3(tabuleiro), new Posicao(0, 1));
