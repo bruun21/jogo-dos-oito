@@ -1,5 +1,7 @@
 package tabuleiro;
 
+import java.util.Objects;
+
 public class Posicao {
 	private int linha;
 	private int coluna;
@@ -25,7 +27,7 @@ public class Posicao {
 	public void setColuna(int coluna) {
 		this.coluna = coluna;
 	}
-
+	
 
 	@Override
 	public String toString() {

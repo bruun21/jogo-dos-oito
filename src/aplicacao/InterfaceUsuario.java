@@ -1,8 +1,11 @@
 package aplicacao;
 
+import java.util.Scanner;
+
 import partida.PecasPartida;
 
 public class InterfaceUsuario {
+	
 	
 	public static void imprimirTabuleiro(PecasPartida[][] pecas) {
 		for (int linha=0; linha < pecas.length; linha++) {
@@ -13,6 +16,7 @@ public class InterfaceUsuario {
 		}
 	}
 	
+	
 	private static void imprimirPeca(PecasPartida peca) {
 		if (peca == null) {
 			System.out.print(" ");
@@ -20,5 +24,9 @@ public class InterfaceUsuario {
 			System.out.print(peca);
 		}
 		System.out.print(" ");
+	}
+	
+	public int lePeca(Scanner sc) {
+		return sc.nextInt();
 	}
 }

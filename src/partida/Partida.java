@@ -1,5 +1,9 @@
 package partida;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import partida.pecas.Espaco;
 import partida.pecas.Numero1;
 import partida.pecas.Numero2;
 import partida.pecas.Numero3;
@@ -8,17 +12,26 @@ import partida.pecas.Numero5;
 import partida.pecas.Numero6;
 import partida.pecas.Numero7;
 import partida.pecas.Numero8;
+import tabuleiro.ExcessaoTabuleiro;
+import tabuleiro.Peca;
 import tabuleiro.Posicao;
 import tabuleiro.Tabuleiro;
 
 public class Partida {
 	private Tabuleiro tabuleiro;
 
+	
+	public Tabuleiro getTabuleiro() {
+		return tabuleiro;
+	}
+
+	
 	public Partida() {
 		tabuleiro = new Tabuleiro(3, 3);
 		inicializacaoPartida();
 	}
 
+	
 	public PecasPartida[][] pecas() {
 		PecasPartida[][] tabuleiroMontado = new PecasPartida[tabuleiro.getLinhas()][tabuleiro.getColunas()];
 		for (int linha = 0; linha < tabuleiro.getLinhas(); linha++) {
@@ -29,6 +42,7 @@ public class Partida {
 		return tabuleiroMontado;
 	}
 
+	
 	private void inicializacaoPartida() {
 		tabuleiro.colocaPeca(new Numero1(tabuleiro), new Posicao(0, 2));
 		tabuleiro.colocaPeca(new Numero2(tabuleiro), new Posicao(0, 0));
@@ -38,5 +52,33 @@ public class Partida {
 		tabuleiro.colocaPeca(new Numero6(tabuleiro), new Posicao(1, 1));
 		tabuleiro.colocaPeca(new Numero7(tabuleiro), new Posicao(2, 1));
 		tabuleiro.colocaPeca(new Numero8(tabuleiro), new Posicao(2, 0));
+		tabuleiro.colocaPeca(new Espaco(tabuleiro), new Posicao(2, 2));
 	}
+
+	
+	public void moverPeca(String pecaEscolhida) {
+		Peca espaco = tabuleiro.encontrarNoTabuleiro(" ");
+
+		Peca peca = tabuleiro.encontrarNoTabuleiro(pecaEscolhida);
+
+		List<Posicao> movimentos = new ArrayList<Posicao>(tabuleiro.movimentosPossiveis(espaco.getPosicao()));
+
+		if (validaMovimento(movimentos, peca.getPosicao())) {
+			tabuleiro.trocaPecas(espaco, peca);
+		}
+		else {
+			throw new ExcessaoTabuleiro("Movimento inválido");
+		}
+	}
+
+	
+	public boolean validaMovimento(List<Posicao> posicoes, Posicao posicao) {
+		for(Posicao pos: posicoes) {
+			if (pos.getColuna() == posicao.getColuna() && pos.getLinha() == posicao.getLinha()) {
+				return true;
+			}
+		} 
+		return false;
+	}
+
 }

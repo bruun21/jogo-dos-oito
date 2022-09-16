@@ -10,6 +10,11 @@ public class Peca {
 	}
 
 
+	public Posicao getPosicao() {
+		return posicao;
+	}
+
+
 	public Peca(Tabuleiro tabuleiro) {
 		this.tabuleiro = tabuleiro;
 		posicao = null;
