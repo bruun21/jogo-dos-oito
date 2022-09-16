@@ -50,13 +50,11 @@ public class Partida {
 		tabuleiro.colocaPeca(new Numero7(tabuleiro), new Posicao(2, 1));
 		tabuleiro.colocaPeca(new Numero8(tabuleiro), new Posicao(2, 0));
 		tabuleiro.colocaPeca(new Espaco(tabuleiro), new Posicao(2, 2));
-		Peca espaco = tabuleiro.encontrarNoTabuleiro(" ");
-		tabuleiro.movimentosPossiveis(espaco);
+		
 	}
 
 	
-	public void moverPeca(String pecaEscolhida) {
-		Peca espaco = tabuleiro.encontrarNoTabuleiro(" ");
+	public void moverPeca(String pecaEscolhida, Peca espaco) {
 
 		Peca peca = tabuleiro.encontrarNoTabuleiro(pecaEscolhida);
 

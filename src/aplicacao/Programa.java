@@ -3,6 +3,7 @@ package aplicacao;
 import java.util.Scanner;
 
 import partida.Partida;
+import tabuleiro.Peca;
 
 public class Programa {
 
@@ -12,6 +13,8 @@ public class Programa {
 		
 		
 		while(partida.verificaFim()) {
+			Peca espaco = partida.getTabuleiro().encontrarNoTabuleiro(" ");
+			partida.getTabuleiro().movimentosPossiveis(espaco);
 			
 			InterfaceUsuario.imprimirTabuleiro(partida.pecas());
 			
@@ -21,7 +24,7 @@ public class Programa {
 			String pecaEscolhida = sc.nextLine();
 			
 			
-			partida.moverPeca(pecaEscolhida);
+			partida.moverPeca(pecaEscolhida, espaco);
 	
 		}
 	}
