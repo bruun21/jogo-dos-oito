@@ -11,7 +11,7 @@ public class Programa {
 		Partida partida = new Partida();
 		
 		
-		while(true) {
+		while(partida.verificaFim()) {
 			
 			InterfaceUsuario.imprimirTabuleiro(partida.pecas());
 			

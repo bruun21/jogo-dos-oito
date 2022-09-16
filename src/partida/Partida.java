@@ -50,6 +50,8 @@ public class Partida {
 		tabuleiro.colocaPeca(new Numero7(tabuleiro), new Posicao(2, 1));
 		tabuleiro.colocaPeca(new Numero8(tabuleiro), new Posicao(2, 0));
 		tabuleiro.colocaPeca(new Espaco(tabuleiro), new Posicao(2, 2));
+		Peca espaco = tabuleiro.encontrarNoTabuleiro(" ");
+		tabuleiro.movimentosPossiveis(espaco);
 	}
 
 	
@@ -66,5 +68,20 @@ public class Partida {
 		else {
 			throw new ExcessaoTabuleiro("Movimento inválido");
 		}
+	}
+	
+	public boolean verificaFim() {
+		int contadorVerificacao = 1;
+		for (int linha = 0; linha < tabuleiro.getLinhas(); linha++) {
+			for (int coluna = 0; coluna < tabuleiro.getColunas(); coluna++) {
+				if (tabuleiro.getPecas()[linha][coluna].toString() == Integer.toString(contadorVerificacao, linha)) {
+					contadorVerificacao++;
+					if (contadorVerificacao == 8) {
+						return false;
+					}
+				}
+			}
+		}
+		return true; 
 	}
 }

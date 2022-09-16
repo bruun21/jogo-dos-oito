@@ -75,6 +75,11 @@ public class Tabuleiro {
 	
 	
 	public void movimentosPossiveis (Peca espaco) {
+		for(Peca[] vetPec: pecas) {
+			for(Peca pec: vetPec) {
+				pec.setMovimenta(false);
+			}
+		}
 		
 		if (espaco.posicao.getColuna() + 1 <3) {
 			pecas[espaco.posicao.getLinha()][espaco.posicao.getColuna() +1].setMovimenta(true);
