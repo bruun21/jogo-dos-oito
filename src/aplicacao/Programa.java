@@ -16,6 +16,7 @@ public class Programa {
 			Peca espaco = partida.getTabuleiro().encontrarNoTabuleiro(" ");
 			partida.getTabuleiro().movimentosPossiveis(espaco);
 			
+			InterfaceUsuario.clearScreen();
 			InterfaceUsuario.imprimirTabuleiro(partida.pecas());
 			
 			System.out.println();
