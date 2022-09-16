@@ -1,7 +1,5 @@
 package tabuleiro;
 
-import java.util.Objects;
-
 public class Posicao {
 	private int linha;
 	private int coluna;

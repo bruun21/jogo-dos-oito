@@ -3,6 +3,14 @@ package tabuleiro;
 public class Peca {
 	protected Posicao posicao;
 	private Tabuleiro tabuleiro;
+	private boolean movimenta = false;
+	
+	public boolean isMovimenta() {
+		return movimenta;
+	}
+	public void setMovimenta(boolean movimenta) {
+		this.movimenta = movimenta;
+	}
 
 	
 	protected Tabuleiro getTabuleiro() {
@@ -19,6 +27,4 @@ public class Peca {
 		this.tabuleiro = tabuleiro;
 		posicao = null;
 	}
-	
-	
 }

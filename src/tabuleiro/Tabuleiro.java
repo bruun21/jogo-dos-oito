@@ -1,8 +1,5 @@
 package tabuleiro;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Tabuleiro {
 	private int linhas;
 	private int colunas;
@@ -77,18 +74,24 @@ public class Tabuleiro {
 	}
 	
 	
-	public List<Posicao> movimentosPossiveis (Posicao posicao) {
-		List<Posicao> movimentos = new ArrayList<Posicao>();
+	public void movimentosPossiveis (Peca espaco) {
 		
-		if (posicao.getColuna() + 1 <3) movimentos.add(new Posicao(posicao.getLinha(), posicao.getColuna() +1));
+		if (espaco.posicao.getColuna() + 1 <3) {
+			pecas[espaco.posicao.getLinha()][espaco.posicao.getColuna() +1].setMovimenta(true);
+		}
 		
-		if (posicao.getColuna() - 1 >= 0) movimentos.add(new Posicao(posicao.getLinha(), posicao.getColuna() -1));
+		if (espaco.posicao.getColuna() - 1 >= 0) {
+			pecas[espaco.posicao.getLinha()][espaco.posicao.getColuna() -1].setMovimenta(true);;
+		}
 		
-		if (posicao.getLinha() + 1 <3) movimentos.add(new Posicao(posicao.getLinha() +1, posicao.getColuna()));
+		if (espaco.posicao.getLinha() + 1 <3) {
+			pecas[espaco.posicao.getLinha() +1][espaco.posicao.getColuna()].setMovimenta(true);;
+		}
 		
-		if (posicao.getLinha() - 1 >= 0) movimentos.add(new Posicao(posicao.getLinha() -1, posicao.getColuna()));
-		
-		return movimentos;
+		if (espaco.posicao.getLinha() - 1 >= 0) {
+			pecas[espaco.posicao.getLinha() -1][espaco.posicao.getColuna()].setMovimenta(true);
+		}
+
 	}
 	
 	

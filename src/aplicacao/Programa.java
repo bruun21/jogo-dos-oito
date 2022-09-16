@@ -3,7 +3,6 @@ package aplicacao;
 import java.util.Scanner;
 
 import partida.Partida;
-import tabuleiro.Posicao;
 
 public class Programa {
 
@@ -23,9 +22,7 @@ public class Programa {
 			
 			
 			partida.moverPeca(pecaEscolhida);
-
-			
-			
+	
 		}
 	}
 

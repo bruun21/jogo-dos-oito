@@ -1,8 +1,5 @@
 package partida;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import partida.pecas.Espaco;
 import partida.pecas.Numero1;
 import partida.pecas.Numero2;
@@ -61,24 +58,13 @@ public class Partida {
 
 		Peca peca = tabuleiro.encontrarNoTabuleiro(pecaEscolhida);
 
-		List<Posicao> movimentos = new ArrayList<Posicao>(tabuleiro.movimentosPossiveis(espaco.getPosicao()));
+		tabuleiro.movimentosPossiveis(espaco);
 
-		if (validaMovimento(movimentos, peca.getPosicao())) {
+		if (peca.isMovimenta()) {
 			tabuleiro.trocaPecas(espaco, peca);
 		}
 		else {
 			throw new ExcessaoTabuleiro("Movimento inválido");
 		}
 	}
-
-	
-	public boolean validaMovimento(List<Posicao> posicoes, Posicao posicao) {
-		for(Posicao pos: posicoes) {
-			if (pos.getColuna() == posicao.getColuna() && pos.getLinha() == posicao.getLinha()) {
-				return true;
-			}
-		} 
-		return false;
-	}
-
 }
